@@ -14,10 +14,17 @@ router.get('/signup', (req, res) => {
 router.post("/signin", async (req, res) => {
     const {email, password} = req.body;
     //mongoose virtual function on google
-    const user = User.matchPassword(email, password);
+    //we need to use try and catch otherwise our app will be crashed
+    try{
+        const token = await User.matchPasswordAndGenerateToken(email, password);
 
-    console.log("User", user);
-    return res.redirect("/");
+    console.log("token", token);
+    return res.cookie("token", token).redirect("/");
+} catch(error){
+    return res.render("signin", {
+        error: "Incorrect Email or Password",
+    })
+}
 })
 
 router.post('/signup', async (req, res) => {

@@ -1,6 +1,7 @@
 // to hash a password we import this crypto node docs
 const {createHmac, randomBytes} = require("crypto");
 const mongoose = require("mongoose");
+const { createTokenForUser } = require("../services/auth");
 
 const userSchema = new mongoose.Schema({
     fullName: {
@@ -53,7 +54,7 @@ userSchema.pre("save", function (next) {
         next();
 })
 
-userSchema.static('matchPassword', async function(email, password) {
+userSchema.static('matchPasswordAndGenerateToken', async function(email, password) {
     const user = await this.findOne({email});
     if(!user) throw new Error('User not found');
 
@@ -65,7 +66,8 @@ userSchema.static('matchPassword', async function(email, password) {
         .digest("hex");
 
     if(hashedpassword !== userProvideHash)throw new Error("Incorrect Password");
-    return { ...user, password: undefined, salt: undefined};
+    const token = createTokenForUser(user);
+    return token;
 });
 
 const User = mongoose.model('user', userSchema);

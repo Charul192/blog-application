@@ -33,5 +33,15 @@
     </div>
   </div>
 </nav>
+
+<!-- if error only then render this -->
+ <div class="container mt-4">
+ <% if (locals.error) {  %>
+  <div class="alert alert-danger" role="alert">
+  <%= locals.error %>
+</div>
+ <% }  %>
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-4HwswNzWYzjIDpCVNf1zNaD5kzKvsg5doP0bWqnmw8kZOGsCtLITp1b9N1Y9+nGx" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,9 +1,11 @@
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 //hmare routes import krne honge
 const userRoute = require("./routes/user");
+const { checkForAuthenticationCookie } = require("./middlewares/auth");
 
 const app = express();
 const PORT = 8000;
@@ -17,9 +19,14 @@ app.set("views", path.resolve("./views")); //iss line k liye path require kraa t
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(cookieParser());
+app.use(checkForAuthenticationCookie("token"));
 
 app.get("/", (req, res) => {
-    return res.render("home");
+    return res.render("home", {
+        user: req.user,
+    }
+    );
 })
 
 app.use('/user', userRoute);
