@@ -1,0 +1,4 @@
+npm i nodemon -D: gets installed in devDependencies
+Devdependenies are the dependecies that get installed only at the development time.
+Therefore it helps keep the size of the package small while deploying
+Take care of dependencies that you need to get installed

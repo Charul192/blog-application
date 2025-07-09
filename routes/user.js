@@ -1,0 +1,35 @@
+const { Router } = require("express");
+const User = require("../models/user");
+
+const router = Router();
+
+router.get('/signin', (req, res) => {
+    return res.render("signin");
+});
+
+router.get('/signup', (req, res) => {
+    return res.render("signup");
+});
+
+router.post("/signin", async (req, res) => {
+    const {email, password} = req.body;
+    //mongoose virtual function on google
+    const user = User.matchPassword(email, password);
+
+    console.log("User", user);
+    return res.redirect("/");
+})
+
+router.post('/signup', async (req, res) => {
+    //hum log kya kya denge fullName, email,password
+    const {fullName, email, password} = req.body;
+    //naya user create krna h database isiliye require kiya
+    await User.create({
+        fullName,
+        email,
+        password,
+    });
+    return res.redirect("/");
+});
+
+module.exports = router;
