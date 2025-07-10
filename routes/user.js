@@ -7,6 +7,8 @@ router.get('/signin', (req, res) => {
     return res.render("signin");
 });
 
+
+
 router.get('/signup', (req, res) => {
     return res.render("signup");
 });
@@ -21,6 +23,7 @@ router.post("/signin", async (req, res) => {
     console.log("token", token);
     return res.cookie("token", token).redirect("/");
 } catch(error){
+    console.error("Sign-in error:", error.message);
     return res.render("signin", {
         error: "Incorrect Email or Password",
     })

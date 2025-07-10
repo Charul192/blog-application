@@ -7,7 +7,11 @@
 </head>
 <body>
     <%- include('./partials/nav') %>
-    <%= JSON.stringify(user) %>
+    <% if (user) { %>
+  <pre><%= JSON.stringify(user, null, 2) %></pre>
+<% } else { %>
+  <p style="color: red;">You are not logged in.</p>
+<% } %>
     <%- include('./partials/script') %>
 </body>
 </html>
