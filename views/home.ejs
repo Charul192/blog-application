@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('./partials/head') %>
     <title>Home</title>
-    
-</head>
-<body>
-    <%- include('./partials/nav') %>
-    <% if (user) { %>
-  <pre><%= JSON.stringify(user, null, 2) %></pre>
-<% } else { %>
-  <p style="color: red;">You are not logged in.</p>
-<% } %>
-    <%- include('./partials/script') %>
-</body>
+  </head>
+  <body>
+    <%- include('./partials/nav') %> <% if (user) { %>
+    <pre><%= JSON.stringify(user, null, 2) %></pre>
+    <% } else { %>
+    <p style="color: red">You are not logged in.</p>
+    <% } %> <%- include('./partials/script') %>
+  </body>
 </html>

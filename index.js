@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 
 //hmare routes import krne honge
 const userRoute = require("./routes/user");
+const blogRoute = require("./routes/blog");
+
 const { checkForAuthenticationCookie } = require("./middlewares/auth");
 
 const app = express();
@@ -32,12 +34,13 @@ app.use(checkForAuthenticationCookie("token"));
 
 app.get("/", (req, res) => {
     return res.render("home", {
-        user: req.user,
+        user: req.user || null,
     }
     );
 })
 
 app.use('/user', userRoute);
+app.use('/blog', blogRoute);
 
 app.listen(PORT, ()=> {
     console.log(`Server started at PORT ${PORT}`);
