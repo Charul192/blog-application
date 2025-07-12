@@ -8,6 +8,14 @@ router.get('/add-new', (req, res) => {
     })
 })
 
+router.get('/:id', async (req, res) => {
+    const blog = await Blog.findById(req.params.id);
+    return res.render('blog', {
+        user: req.user,
+        blog,
+    })
+})
+
 router.post('/add-new', upload.single("coverImage"), async (req, res) => {
     const {title, body} = req.body;
     const blog = await Blog.create({

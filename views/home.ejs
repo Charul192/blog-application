@@ -5,10 +5,21 @@
     <title>Home</title>
   </head>
   <body>
-    <%- include('./partials/nav') %> <% if (user) { %>
-    <%= JSON.stringify(blogs, null, 2) %> 
-    <% } else { %>
-    <p style="color: red">You are not logged in.</p>
-    <% } %> <%- include('./partials/script') %>
+    <%- include('./partials/nav') %>
+    <div class="container mt-3">
+      <div class=" row row-cols-4">
+      <% blogs.forEach(blog => { %>
+      <div class="card col" style="width: 18rem">
+        <!-- express aise hi kuch vi static cheez nhi deti isiliye ye image vi render nhi ho rhi therefore we need to tell express ki tum isse serve krr skte ho -->
+        <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.title %></h5>
+          <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+        </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <%- include('./partials/script') %>
   </body>
 </html>
