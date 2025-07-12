@@ -7,11 +7,11 @@ const multer = require("multer");
 const storage = multer.diskStorage({
     //kaha store krna h
   destination: function (req, file, cb) {
-    cb(null, path.resolve(`./public/uploads/${req.user._id}`));
+    cb(null, path.resolve(`./public/uploads/`));
   },
   //file ka name kya hone wala h
   filename: function (req, file, cb) {
-    const fileName = `${Date.now}-${file.originalname}`
+    const fileName = `${Date.now()}-${file.originalname}`
     //callback
     cb(null, fileName);
   }

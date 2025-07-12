@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const {Blog} = require("./models/blog")
 
 //hmare routes import krne honge
 const userRoute = require("./routes/user");
@@ -32,9 +33,12 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+    //u can also pass sort ki kaise sort krne hain
+    const allBlogs = await Blog.find({}).sort({ createdAt: -1 });
     return res.render("home", {
         user: req.user || null,
+        blogs: allBlogs,
     }
     );
 })
