@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const {Blog, upload} = require("../models/blog");
+const Comment = require("../models/comment");
 
 router.get('/add-new', (req, res) => {
     return res.render("addBlog", {
@@ -9,11 +10,21 @@ router.get('/add-new', (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    const blog = await Blog.findById(req.params.id);
+    const blog = await Blog.findById(req.params.id).populate("createdBy");
+    console.log(blog);
     return res.render('blog', {
         user: req.user,
         blog,
     })
+})
+
+router.post("/comment/:blogId", async(req, res) => {
+    const comment = await Comment.create({
+        content: res.body.content,
+        blogId: req.params.blogId,
+        createdBy: req.user._id,
+    })
+    return res.redirect(`/blog/${req.params.blogId}`)
 })
 
 router.post('/add-new', upload.single("coverImage"), async (req, res) => {

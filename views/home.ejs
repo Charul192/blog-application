@@ -7,8 +7,10 @@
   <body>
     <%- include('./partials/nav') %>
     <div class="container mt-3">
-      <div class=" row row-cols-4">
+      <!-- grid in bootstrap -->
+       <div class="row row-cols-4">
       <% blogs.forEach(blog => { %>
+         <div class="col">
       <div class="card col" style="width: 18rem">
         <!-- express aise hi kuch vi static cheez nhi deti isiliye ye image vi render nhi ho rhi therefore we need to tell express ki tum isse serve krr skte ho -->
         <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="..." />
@@ -19,6 +21,7 @@
         </div>
       </div>
       <% }) %>
+      </div>
     </div>
     <%- include('./partials/script') %>
   </body>
