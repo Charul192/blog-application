@@ -31,6 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
+app.use((req, res, next) => {
+    res.locals.user = req.user || null;
+    next();
+  });
 //MiddleWare for using static info
 app.use(express.static(path.resolve("./public")));
 
@@ -38,7 +42,7 @@ app.get("/", async (req, res) => {
     //u can also pass sort ki kaise sort krne hain
     const allBlogs = await Blog.find({}).sort({ createdAt: -1 });
     return res.render("home", {
-        user: req.user || null,
+    
         blogs: allBlogs,
     }
     );
