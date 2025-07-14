@@ -22,6 +22,48 @@ A full-stack blog application built with Node.js, Express, and MongoDB that allo
 - 🔒 **Protected Routes**: Authentication middleware for secure access
 - 🍪 **Cookie-based Sessions**: Secure user session management
 
+## Project Structure
+```bash
+BLOG-APPLICATION/
+│
+├── middlewares/                 # Custom middleware functions
+│   └── auth.js                  # Middleware to handle authentication checks
+│
+├── models/                      # Mongoose schemas for database collections
+│   ├── blog.js                  # Blog post schema
+│   ├── comment.js               # Comment schema
+│   └── user.js                  # User schema
+│
+├── node_modules/                # Installed npm packages
+│
+├── public/                      # Publicly accessible assets
+│   └── images/
+│       └── uploads/             # Uploaded images (like blog cover images)
+│
+├── routes/                      # Express route definitions
+│   ├── blog.js                  # Routes related to blogs
+│   └── user.js                  # Routes for user signup, login, etc.
+│
+├── services/                    # Helper/service functions
+│   └── auth.js                  # Auth service for login/signup logic
+│
+├── views/                       # EJS templates for rendering UI
+│   ├── partials/                # Reusable UI components (header, nav, etc.)
+│   │   ├── head.ejs
+│   │   ├── nav.ejs
+│   │   └── script.ejs
+│   ├── addBlog.ejs              # Form to add a new blog post
+│   ├── blog.ejs                 # Single blog post page
+│   ├── home.ejs                 # Homepage displaying all blogs
+│   ├── signin.ejs               # User sign-in page
+│   └── signup.ejs               # User registration page
+│
+├── index.js                     # Entry point of the application
+├── notes.txt                    # Developer notes or to-do list
+├── package.json                 # Project metadata and dependencies
+└── package-lock.json            # Exact version lock for dependencies
+```
+
 ## ⚙️ Installation and Setup
 
 ### Prerequisites
