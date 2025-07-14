@@ -22,38 +22,6 @@ A full-stack blog application built with Node.js, Express, and MongoDB that allo
 - 🔒 **Protected Routes**: Authentication middleware for secure access
 - 🍪 **Cookie-based Sessions**: Secure user session management
 
-## 📁 Project Structure
-
-```
-blog-application/
-├── index.js                 # Main server file
-├── package.json             # Dependencies and scripts
-├── middlewares/
-│   └── auth.js              # Authentication middleware
-├── models/
-│   ├── blog.js              # Blog schema and multer config
-│   ├── comment.js           # Comment schema
-│   └── user.js              # User schema
-├── routes/
-│   ├── blog.js              # Blog-related routes
-│   └── user.js              # User authentication routes
-├── services/
-│   └── auth.js              # Authentication service
-├── views/
-│   ├── addBlog.ejs          # Add new blog page
-│   ├── blog.ejs             # Individual blog view
-│   ├── home.ejs             # Homepage with blog list
-│   ├── signin.ejs           # Sign in page
-│   ├── signup.ejs           # Sign up page
-│   └── partials/            # Reusable EJS components
-│       ├── head.ejs
-│       ├── nav.ejs
-│       └── script.ejs
-└── public/
-    ├── images/              # Static images
-    └── uploads/             # User uploaded files
-```
-
 ## ⚙️ Installation and Setup
 
 ### Prerequisites
