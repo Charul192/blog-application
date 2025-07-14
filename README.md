@@ -165,24 +165,6 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/blogif
 - Cookie-based session management
 - Input validation and sanitization
 
-## 🚨 Troubleshooting
-
-### Common Issues
-
-1. **MongoDB Connection Error**
-   - Ensure MongoDB is running
-   - Check the connection string
-   - Verify MongoDB is installed correctly
-
-2. **File Upload Issues**
-   - Check `public/uploads/` directory permissions
-   - Ensure multer configuration is correct
-
-3. **Authentication Problems**
-   - Clear browser cookies
-   - Check JWT token generation
-   - Verify user credentials
-
 ## 🙏 Acknowledgments
 
 - Express.js community for the excellent framework
