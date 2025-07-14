@@ -172,5 +172,8 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/blogif
 - Bootstrap team for the responsive CSS framework
 - All contributors who help improve this project
 
+## 👩‍💻 Author
+- Made with ❤️ by Charul192
+- Feel free to fork, clone, or contribute!
 ---
 
