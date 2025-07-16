@@ -1,0 +1,79 @@
+/* Smaller font on mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container for blog */
+.blog-container {
+  padding: 1rem;
+}
+
+.blog-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Responsive text body */
+.blog-body {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Comment section */
+.comment-container {
+  margin-top: 2rem;
+}
+
+.comment-box {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment-box pre {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+}
+
+/* Profile image */
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .blog-title {
+    font-size: 1.5rem;
+  }
+
+  .blog-body {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* Slight padding adjustments */
+body {
+  padding-bottom: 50px;
+}

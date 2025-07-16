@@ -6,23 +6,33 @@
   </head>
   <body>
     <%- include('./partials/nav') %>
+
     <div class="container mt-3">
-      <!-- grid in bootstrap -->
-       <div class="row row-cols-4">
-      <% blogs.forEach(blog => { %>
-         <div class="col">
-      <div class="card col" style="width: 18rem">
-        <!-- express aise hi kuch vi static cheez nhi deti isiliye ye image vi render nhi ho rhi therefore we need to tell express ki tum isse serve krr skte ho -->
-        <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title"><%= blog.title %></h5>
-          <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+      <% if (blogs.length === 0) { %>
+      <p>No blogs found.<br />Please add a blog to see content here.</p>
+      <% } else { %>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <% blogs.forEach(blog => { %>
+        <div class="col">
+          <div class="card h-100">
+            <img
+              src="<%= blog.coverImageURL %>"
+              class="card-img-top img-fluid"
+              alt="cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary w-100"
+                >View</a
+              >
+            </div>
+          </div>
         </div>
-        </div>
+        <% }) %>
       </div>
-      <% }) %>
-      </div>
+      <% } %>
     </div>
+
     <%- include('./partials/script') %>
   </body>
 </html>
