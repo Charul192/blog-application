@@ -222,3 +222,4 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/blogif
   - If you found this project useful or interesting, please give it a star on GitHub — it helps others discover it too!
 ---
 
+[🔝 Back to top](#-blog-application)
